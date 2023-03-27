@@ -73,3 +73,33 @@ int printInt(va_list arg)
 	}
 	return (j);
 }
+
+/**
+ * printBinary - print a number in binary
+ * @arg: the list of variadic arguments
+ *
+ * Return: the number of characters printed
+*/
+int printBinary(va_list arg)
+{
+	int i = va_arg(arg, int);
+	int j = 0;
+	int k = 1;
+	int l = 0;
+
+	if (i < 0)
+	{
+		return (0);
+	}
+	while (i / k > 1)
+		k *= 2;
+	while (k > 0)
+	{
+		l = i / k;
+		putChar(l + '0');
+		i = i % k;
+		k /= 2;
+		j++;
+	}
+	return (j);
+}

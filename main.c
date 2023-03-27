@@ -7,7 +7,7 @@
 */
 int main(void)
 {
-	int i = _printf("Name: %s\nGender: %c\nAge: %d\n", "Titus", 'M', 23);
+	int i = _printf("Name: %s\nGender: %c\nAge: %d\nID: %b\n", "Titus", 'M', 23, 201);
 
 	printf("%d\n", i);
 	return (0);

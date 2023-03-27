@@ -8,4 +8,5 @@ int putChar(char c);
 int printChar(va_list arg);
 int printString(va_list arg);
 int printInt(va_list arg);
+int printBinary(va_list arg);
 #endif

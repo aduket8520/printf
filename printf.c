@@ -38,6 +38,9 @@ int _printf(const char *format, ...)
 			case 'i':
 				printed += printInt(ap);
 				break;
+			case 'b':
+				printed += printBinary(ap);
+				break;
 			default:
 				break;
 			}
