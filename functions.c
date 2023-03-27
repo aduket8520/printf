@@ -6,7 +6,7 @@
  * @c: character to be printed
  * Return: 1 if goes well
  * otherwise -1
-*/
+ */
 int putChar(char c)
 {
 	return (write(1, &c, 1));
@@ -17,7 +17,7 @@ int putChar(char c)
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printChar(va_list arg)
 {
 	char c = va_arg(arg, int);
@@ -30,24 +30,34 @@ int printChar(va_list arg)
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printString(va_list arg)
 {
 	char *s = va_arg(arg, char *);
 	int i;
+
+	if (s == NULL)
+	{
+		putChar('(');
+		putChar('n');
+		putChar('u');
+		putChar('l');
+		putChar('l');
+		putChar(')');
+		return (6);
+	}
 
 	for (i = 0; s[i] != '\0'; i++)
 		putChar(s[i]);
 	return (i);
 }
 
-
 /**
  * printInt - print an integer
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printInt(va_list arg)
 {
 	int i = va_arg(arg, int);
@@ -79,7 +89,7 @@ int printInt(va_list arg)
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printBinary(va_list arg)
 {
 	int i = va_arg(arg, int);
