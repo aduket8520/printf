@@ -34,6 +34,10 @@ int _printf(const char *format, ...)
 			case '%':
 				printed += putChar('%');
 				break;
+			case 'd':
+			case 'i':
+				printed += printInt(ap);
+				break;
 			default:
 				break;
 			}

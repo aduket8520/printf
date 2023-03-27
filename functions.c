@@ -40,3 +40,36 @@ int printString(va_list arg)
 		putChar(s[i]);
 	return (i);
 }
+
+
+/**
+ * printInt - print an integer
+ * @arg: the list of variadic arguments
+ *
+ * Return: the number of characters printed
+*/
+int printInt(va_list arg)
+{
+	int i = va_arg(arg, int);
+	int j = 0;
+	int k = 1;
+	int l = 0;
+
+	if (i < 0)
+	{
+		putChar('-');
+		j++;
+		i *= -1;
+	}
+	while (i / k > 9)
+		k *= 10;
+	while (k > 0)
+	{
+		l = i / k;
+		putChar(l + '0');
+		i = i % k;
+		k /= 10;
+		j++;
+	}
+	return (j);
+}
