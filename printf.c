@@ -32,9 +32,11 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == printObjects[j].sp)
 				{
-					printObjects[j].func(ap);
+					printed += printObjects[j].func(ap);
 				}
 			}
+			if (format[i + 1] == '%')
+				printed += putChar('%');
 			i++;
 		}
 		else
