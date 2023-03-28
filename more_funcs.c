@@ -9,15 +9,11 @@
  */
 int printOctal(va_list arg)
 {
-	int i = va_arg(arg, int);
+	unsigned int i = va_arg(arg, unsigned int);
 	int j = 0;
 	int k = 1;
 	int l = 0;
 
-	if (i < 0)
-	{
-		return (0);
-	}
 	while (i / k > 7)
 		k *= 8;
 	while (k > 0)
@@ -39,15 +35,11 @@ int printOctal(va_list arg)
  */
 int printHexLower(va_list arg)
 {
-	int i = va_arg(arg, int);
+	unsigned int i = va_arg(arg, unsigned int);
 	int j = 0;
 	int k = 1;
 	int l = 0;
 
-	if (i < 0)
-	{
-		return (0);
-	}
 	while (i / k > 15)
 		k *= 16;
 	while (k > 0)
@@ -72,15 +64,11 @@ int printHexLower(va_list arg)
  */
 int printHexUpper(va_list arg)
 {
-	int i = va_arg(arg, int);
+	unsigned int i = va_arg(arg, unsigned int);
 	int j = 0;
 	int k = 1;
 	int l = 0;
 
-	if (i < 0)
-	{
-		return (0);
-	}
 	while (i / k > 15)
 		k *= 16;
 	while (k > 0)
