@@ -17,7 +17,8 @@ int _printf(const char *format, ...)
 		{'d', printInt}, {'i', printInt},
 		{'b', printBinary}, {'o', printOctal},
 		{'x', printHexLower}, {'X', printHexUpper},
-		{'u', printUnsignedInt}, {'\0', NULL}
+		{'u', printUnsignedInt}, {'r', printStringReverse},
+		{'\0', NULL}
 	};
 
 	if (format == NULL)
@@ -28,7 +29,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 10; j++)
+			for (j = 0; j < 11; j++)
 			{
 				if (format[i + 1] == printObjects[j].sp)
 				{

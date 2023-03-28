@@ -1,11 +1,12 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * printOctal - print a number in octal
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printOctal(va_list arg)
 {
 	int i = va_arg(arg, int);
@@ -35,7 +36,7 @@ int printOctal(va_list arg)
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printHexLower(va_list arg)
 {
 	int i = va_arg(arg, int);
@@ -68,7 +69,7 @@ int printHexLower(va_list arg)
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printHexUpper(va_list arg)
 {
 	int i = va_arg(arg, int);
@@ -96,13 +97,12 @@ int printHexUpper(va_list arg)
 	return (j);
 }
 
-
 /**
  * printUnsignedInt - print an unsigned int
  * @arg: the list of variadic arguments
  *
  * Return: the number of characters printed
-*/
+ */
 int printUnsignedInt(va_list arg)
 {
 	unsigned int i = va_arg(arg, unsigned int);
@@ -119,6 +119,40 @@ int printUnsignedInt(va_list arg)
 		i = i % k;
 		k /= 10;
 		j++;
+	}
+	return (j);
+}
+
+/**
+ * printStringReverse - print a string in reverse
+ * @arg: the list of variadic arguments
+ *
+ * Return: the number of characters printed
+ */
+int printStringReverse(va_list arg)
+{
+	char *str = va_arg(arg, char *);
+	char *s = str;
+	int i, j;
+
+	if (str == NULL)
+	{
+		putChar('(');
+		putChar('n');
+		putChar('u');
+		putChar('l');
+		putChar('l');
+		putChar(')');
+		return (6);
+	}
+
+	j = 0;
+	for (i = 0; *s != '\0'; s++)
+		i++;
+	while (i >= 0)
+	{
+		j += putChar(*(str + i));
+		i--;
 	}
 	return (j);
 }

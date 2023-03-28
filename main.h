@@ -23,5 +23,7 @@ int printUnsignedInt(va_list arg);
 int printOctal(va_list arg);
 int printHexLower(va_list arg);
 int printHexUpper(va_list arg);
+int printStringReverse(va_list arg);
+
 #endif
 
