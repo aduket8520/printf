@@ -19,5 +19,9 @@ int printChar(va_list arg);
 int printString(va_list arg);
 int printInt(va_list arg);
 int printBinary(va_list arg);
+int printUnsignedInt(va_list arg);
+int printOctal(va_list arg);
+int printHexLower(va_list arg);
+int printHexUpper(va_list arg);
 #endif
 

@@ -13,11 +13,11 @@ int _printf(const char *format, ...)
 	int i, j, printed;
 	va_list ap;
 	printObject printObjects[] = {
-		{'c', printChar},
-		{'s', printString},
-		{'d', printInt},
-		{'i', printInt},
-		{'b', printBinary}
+		{'c', printChar}, {'s', printString},
+		{'d', printInt}, {'i', printInt},
+		{'b', printBinary}, {'o', printOctal},
+		{'x', printHexLower}, {'X', printHexUpper},
+		{'u', printUnsignedInt}, {'\0', NULL}
 	};
 
 	if (format == NULL)
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 5; j++)
+			for (j = 0; j < 10; j++)
 			{
 				if (format[i + 1] == printObjects[j].sp)
 				{
