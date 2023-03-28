@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - runs the code
@@ -8,6 +9,6 @@ int main(void)
 {
 	int i = _printf("Name: %s\nGender: %c\nAge: %d\nID: %b\n", "Titus", 'M', 23, 201);
 
-	printf("%d\n", i);
+	_printf(".%s.\n", "");
 	return (0);
 }
