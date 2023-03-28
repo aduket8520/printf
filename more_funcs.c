@@ -144,37 +144,3 @@ int printStringReverse(va_list arg)
 	}
 	return (j);
 }
-
-/**
- * printStringReverse - print a string in reverse
- * @arg: the list of variadic arguments
- *
- * Return: the number of characters printed
- */
-int printStringReverse(va_list arg)
-{
-	char *str = va_arg(arg, char *);
-	char *s = str;
-	int i, j;
-
-	if (str == NULL)
-	{
-		putChar('(');
-		putChar('n');
-		putChar('u');
-		putChar('l');
-		putChar('l');
-		putChar(')');
-		return (6);
-	}
-
-	j = 0;
-	for (i = 0; *s != '\0'; s++)
-		i++;
-	while (i >= 0)
-	{
-		j += putChar(*(str + i));
-		i--;
-	}
-	return (j);
-}
