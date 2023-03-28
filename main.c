@@ -9,6 +9,6 @@ int main(void)
 {
 	int i = _printf("Name: %s\nGender: %c\nAge: %d\nID: %b\n", "Titus", 'M', 23, 201);
 
-	_printf(".%s.\n", "");
+	_printf("%d\n", i);
 	return (0);
 }

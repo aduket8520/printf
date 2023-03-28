@@ -6,43 +6,34 @@
 /**
  * _printf - print a formatted string
  * @format: the format string
- *
  * Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int i, printed;
+	int i, j, printed;
 	va_list ap;
+	printObject printObjects[] = {
+		{'c', printChar},
+		{'s', printString},
+		{'d', printInt},
+		{'i', printInt},
+		{'b', printBinary}
+	};
 
 	if (format == NULL)
 		return (-1);
-
 	printed = 0;
 	va_start(ap, format);
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			switch (format[i + 1])
+			for (j = 0; j < 5; j++)
 			{
-			case 'c':
-				printed += printChar(ap);
-				break;
-			case 's':
-				printed += printString(ap);
-				break;
-			case '%':
-				printed += putChar('%');
-				break;
-			case 'd':
-			case 'i':
-				printed += printInt(ap);
-				break;
-			case 'b':
-				printed += printBinary(ap);
-				break;
-			default:
-				break;
+				if (format[i + 1] == printObjects[j].sp)
+				{
+					printObjects[j].func(ap);
+				}
 			}
 			i++;
 		}
@@ -51,7 +42,6 @@ int _printf(const char *format, ...)
 			printed += putChar(format[i]);
 		}
 	}
-
 	va_end(ap);
 	return (printed);
 }
